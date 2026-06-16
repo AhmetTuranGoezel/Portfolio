@@ -161,24 +161,6 @@
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
-  /* ---------- Skill bars ---------- */
-  const bars = $$('.bar');
-  if ('IntersectionObserver' in window) {
-    const bio = new IntersectionObserver((entries, obs) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const lvl = e.target.getAttribute('data-level') || 0;
-          const fill = $('.bar__fill', e.target);
-          if (fill) fill.style.width = lvl + '%';
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.4 });
-    bars.forEach(b => bio.observe(b));
-  } else {
-    bars.forEach(b => { const f = $('.bar__fill', b); if (f) f.style.width = (b.getAttribute('data-level') || 0) + '%'; });
-  }
-
   /* ---------- Scrollspy ---------- */
   const sections = $$('main section[id]');
   const navLinks = $$('.nav__link');
