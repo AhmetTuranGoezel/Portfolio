@@ -184,29 +184,35 @@
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
-  /* ---------- Timeline scroll-progress ---------- */
+  /* ---------- Timeline scroll-progress + dot activation ---------- */
   function updateTimelineProgress() {
-    $$('.timeline').forEach(tl => {
-      const rect = tl.getBoundingClientRect();
-      const viewH = window.innerHeight;
-      const progress = Math.min(1, Math.max(0, (viewH - rect.top) / (rect.height + viewH * 0.3)));
+    const viewH = window.innerHeight;
+    const timelines = $$('#cvTimeline .timeline');
+    let prevDone = true;
+
+    timelines.forEach(tl => {
+      let progress;
+      if (!prevDone) {
+        progress = 0;
+      } else {
+        const rect = tl.getBoundingClientRect();
+        progress = Math.min(1, Math.max(0, (viewH - rect.top) / (rect.height + viewH * 0.3)));
+      }
       tl.style.setProperty('--tl-progress', progress);
+
+      const tlRect = tl.getBoundingClientRect();
+      const tlH = tlRect.height || 1;
+      tl.querySelectorAll('.timeline__item').forEach(item => {
+        if (item.classList.contains('is-active')) return;
+        const dotPos = (item.getBoundingClientRect().top - tlRect.top) / tlH;
+        if (progress > dotPos) item.classList.add('is-active');
+      });
+
+      prevDone = progress >= 1;
     });
   }
   window.addEventListener('scroll', updateTimelineProgress, { passive: true });
   updateTimelineProgress();
-
-  /* ---------- Timeline dot activation ---------- */
-  if ('IntersectionObserver' in window) {
-    const dotObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('is-active');
-        }
-      });
-    }, { threshold: 0.3 });
-    $$('.timeline__item').forEach(item => dotObs.observe(item));
-  }
 
   /* ---------- Stat counter animation ---------- */
   const statEls = $$('.stat__num[data-count]');
@@ -287,7 +293,7 @@
     if (!id) return; // no video configured yet
     const iframe = document.createElement('iframe');
     iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
-    iframe.title = 'Video — Ahmet Turan Gözel';
+    iframe.title = 'Video - Ahmet Turan Gözel';
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     iframe.allowFullscreen = true;
     facade.innerHTML = '';
