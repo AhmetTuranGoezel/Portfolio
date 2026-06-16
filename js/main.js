@@ -80,22 +80,22 @@
   const projects = [
     {
       icon: '🗂️', title: 'Maßgeschneidertes CRM-System', org: 'Vapor Handels GmbH',
-      de: 'Konzeption und Full-Stack-Entwicklung eines individuellen CRM-Systems zur zentralen Verwaltung von Kunden, Angeboten und Prozessen.',
-      en: 'Designed and full-stack built a custom CRM system for central management of customers, quotes and processes.',
+      de: 'Eigenes CRM-System gebaut. Kunden, Angebote und Prozesse werden darüber zentral verwaltet.',
+      en: 'Built a custom CRM system from scratch. Manages customers, quotes and processes in one place.',
       tags: ['React', 'Node.js', 'REST API', 'SQL'],
       badgeDe: 'Berufliches Projekt', badgeEn: 'Professional work'
     },
     {
       icon: '🔗', title: 'B2B-Web-Applikation', org: 'Vapor Handels GmbH',
-      de: 'Entwicklung einer B2B-Plattform zur Digitalisierung von Geschäftsprozessen mit nahtloser Anbindung an das Plentymarkets-ERP.',
-      en: 'Built a B2B platform to digitalise business processes with a seamless integration into the Plentymarkets ERP.',
+      de: 'B2B-Plattform gebaut, die direkt an Plentymarkets angebunden ist. Geschäftsprozesse laufen darüber komplett digital.',
+      en: 'Built a B2B platform connected directly to the Plentymarkets ERP. Business processes run fully digital through it.',
       tags: ['React', 'REST API', 'Plentymarkets'],
       badgeDe: 'Berufliches Projekt', badgeEn: 'Professional work'
     },
     {
       icon: '📦', title: 'Echtzeit-Produktions-Tracker', org: 'Vapor Handels GmbH',
-      de: 'Implementierung eines Echtzeit-Trackers für die Logistik, der Produktions- und Versandstatus live abbildet und LLMs zur Automatisierung nutzt.',
-      en: 'Implemented a real-time logistics tracker that visualises production and shipping status live and uses LLMs for automation.',
+      de: 'Echtzeit-Tracker für Logistik gebaut. Zeigt Produktions- und Versandstatus live an und nutzt LLMs für automatisierte Abläufe.',
+      en: 'Built a real-time logistics tracker. Shows production and shipping status live, with LLM-powered automation on top.',
       tags: ['Echtzeit', 'REST API', 'LLM', 'Logistik'],
       badgeDe: 'Berufliches Projekt', badgeEn: 'Professional work'
     },
@@ -115,8 +115,8 @@
     },
     {
       icon: '🌍', title: 'Internationaler Software-Rollout', org: 'Vorwerk Autotec',
-      de: 'Leitung und Einführung von Softwareprojekten an Standorten in China, Mexiko, Polen und Serbien für einheitliche, digitale Workflows.',
-      en: 'Led and rolled out software projects at sites in China, Mexico, Poland and Serbia to establish unified, digital workflows.',
+      de: 'Software an Standorten in China, Mexiko, Polen und Serbien eingeführt. Ziel: überall dieselben digitalen Abläufe.',
+      en: 'Rolled out software at sites in China, Mexico, Poland and Serbia. Goal: same digital workflows everywhere.',
       tags: ['Rollout', 'Controlling', '.NET'],
       badgeDe: 'Berufliches Projekt', badgeEn: 'Professional work'
     }
