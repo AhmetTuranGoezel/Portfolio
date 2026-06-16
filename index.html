@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmet Turan Gözel — Full Stack Developer & ERP-Spezialist</title>
+  <meta name="description" content="Ahmet Turan Gözel — Full-Stack-Entwickler und ERP-Spezialist aus Remscheid. Erfahrung in der internationalen Automobilindustrie, CRM-/B2B-Entwicklung, React, Power Platform und ERP-Integration." />
+  <meta name="author" content="Ahmet Turan Gözel" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <link rel="canonical" href="https://turangoezel.is-a.dev/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:title" content="Ahmet Turan Gözel — Full Stack Developer & ERP-Spezialist" />
+  <meta property="og:description" content="Full-Stack-Entwickler und ERP-Spezialist aus Remscheid. Internationale Projekterfahrung, CRM-/B2B-Entwicklung, React & Power Platform." />
+  <meta property="og:url" content="https://turangoezel.is-a.dev/" />
+  <meta property="og:image" content="https://turangoezel.is-a.dev/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ahmet Turan Gözel — Full Stack Developer & ERP-Spezialist" />
+  <meta name="twitter:description" content="Full-Stack-Entwickler und ERP-Spezialist aus Remscheid." />
+  <meta name="twitter:image" content="https://turangoezel.is-a.dev/assets/img/og-image.jpg" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/img/profile.jpg" />
+
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="/assets/fonts/jakarta-800.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Set theme + language before paint to avoid flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+        var l = localStorage.getItem('lang') || 'de';
+        document.documentElement.setAttribute('lang', l);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Structured data: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ahmet Turan Gözel",
+    "jobTitle": "Full Stack Developer & ERP Specialist",
+    "address": { "@type": "PostalAddress", "addressLocality": "Remscheid", "addressCountry": "DE" },
+    "email": "mailto:Ahmet.Goezel@outlook.com",
+    "url": "https://turangoezel.is-a.dev",
+    "alumniOf": "Universität Duisburg-Essen",
+    "knowsLanguage": ["de", "en", "tr"],
+    "sameAs": ["https://www.linkedin.com/in/ahmet-turan-g%C3%B6zel-09b150219/"]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link" data-de="Zum Inhalt springen" data-en="Skip to content">Zum Inhalt springen</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#home" class="brand" aria-label="Ahmet Turan Gözel — Start">
+        <span class="brand__mark">ATG</span>
+        <span class="brand__name">Ahmet&nbsp;Turan&nbsp;Gözel</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Hauptnavigation">
+        <a href="#about"    class="nav__link" data-de="Über mich"   data-en="About">Über mich</a>
+        <a href="#cv"       class="nav__link" data-de="Lebenslauf"  data-en="Resume">Lebenslauf</a>
+        <a href="#skills"   class="nav__link" data-de="Skills"      data-en="Skills">Skills</a>
+        <a href="#projects" class="nav__link" data-de="Projekte"    data-en="Projects">Projekte</a>
+        <a href="#video"    class="nav__link" data-de="Video"       data-en="Video">Video</a>
+        <a href="#contact"  class="nav__link" data-de="Kontakt"     data-en="Contact">Kontakt</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="lang-toggle" id="langToggle" type="button"
+                data-de-aria="Sprache wechseln zu Englisch" data-en-aria="Switch language to German"
+                aria-label="Sprache wechseln">
+          <span class="lang-toggle__opt" data-lang-opt="de">DE</span>
+          <span class="lang-toggle__sep">/</span>
+          <span class="lang-toggle__opt" data-lang-opt="en">EN</span>
+        </button>
+
+        <button class="theme-toggle" id="themeToggle" type="button"
+                data-de-aria="Hell-/Dunkelmodus umschalten" data-en-aria="Toggle light/dark mode"
+                aria-label="Theme umschalten">
+          <svg class="icon-sun"  viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-13a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1Zm0 14a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM4 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm18 0a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1ZM5.6 5.6a1 1 0 0 1 1.4 0l.7.7a1 1 0 0 1-1.4 1.4l-.7-.7a1 1 0 0 1 0-1.4Zm11 11a1 1 0 0 1 1.4 0l.7.7a1 1 0 0 1-1.4 1.4l-.7-.7a1 1 0 0 1 0-1.4Zm1.4-11a1 1 0 0 1 0 1.4l-.7.7a1 1 0 1 1-1.4-1.4l.7-.7a1 1 0 0 1 1.4 0Zm-11 11a1 1 0 0 1 0 1.4l-.7.7a1 1 0 0 1-1.4-1.4l.7-.7a1 1 0 0 1 1.4 0Z"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        </button>
+
+        <button class="hamburger" id="hamburger" type="button" aria-expanded="false" aria-controls="nav"
+                data-de-aria="Menü öffnen" data-en-aria="Open menu" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="blob blob--3"></span>
+        <span class="grid-overlay"></span>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow reveal">
+            <span class="status-dot"></span>
+            <span data-de="Full Stack Developer & ERP-Spezialist" data-en="Full Stack Developer & ERP Specialist">Full Stack Developer & ERP-Spezialist</span>
+          </p>
+          <h1 class="hero__title reveal">Ahmet&nbsp;Turan<br />Gözel</h1>
+          <p class="hero__lead reveal" data-de="Ich entwickle maßgeschneiderte Software, die komplexe Geschäftsprozesse in klare, digitale Abläufe verwandelt — von CRM- und B2B-Systemen bis hin zu internationalen ERP-Integrationen."
+             data-en="I build tailor-made software that turns complex business processes into clean, digital workflows — from CRM and B2B systems to international ERP integrations.">
+            Ich entwickle maßgeschneiderte Software, die komplexe Geschäftsprozesse in klare, digitale Abläufe verwandelt — von CRM- und B2B-Systemen bis hin zu internationalen ERP-Integrationen.
+          </p>
+
+          <div class="hero__cta reveal">
+            <a href="#cv" class="btn btn--primary" data-de="Lebenslauf ansehen" data-en="View resume">Lebenslauf ansehen</a>
+            <a href="#contact" class="btn btn--ghost" data-de="Kontakt aufnehmen" data-en="Get in touch">Kontakt aufnehmen</a>
+          </div>
+
+          <div class="hero__socials reveal">
+            <a href="https://www.linkedin.com/in/ahmet-turan-g%C3%B6zel-09b150219/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM3 8.5h3.9V21H3V8.5Zm6.5 0h3.7v1.7h.1c.5-1 1.8-2 3.7-2 3.9 0 4.6 2.6 4.6 5.9V21h-3.9v-5.5c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9.5V8.5Z"/></svg>
+            </a>
+            <a href="mailto:Ahmet.Goezel@outlook.com" aria-label="E-Mail" class="social-link">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.5L4.5 7v11h15V7L12 12.5Zm0-2L19 6H5l7 4.5Z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__portrait reveal">
+          <div class="portrait">
+            <img src="/assets/img/profile.jpg" width="640" height="640"
+                 alt="Porträtfoto von Ahmet Turan Gözel" fetchpriority="high" />
+            <div class="portrait__glow" aria-hidden="true"></div>
+          </div>
+          <div class="portrait__badge">
+            <strong>Remscheid</strong>
+            <span data-de="Deutschland · offen für neue Projekte" data-en="Germany · open to new projects">Deutschland · offen für neue Projekte</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue" aria-hidden="true">
+        <span class="scroll-cue__dot"></span>
+      </a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__index">01</span>
+          <h2 class="section__title" data-de="Über mich" data-en="About me">Über mich</h2>
+        </div>
+
+        <div class="about">
+          <div class="about__media reveal">
+            <img src="/assets/img/profile-wide.jpg" width="1100" height="733"
+                 alt="Ahmet Turan Gözel" loading="lazy" class="about__photo" />
+          </div>
+
+          <div class="about__body">
+            <p class="about__lead reveal" data-de="Full-Stack-Entwickler mit einem Blick für Geschäftsprozesse."
+               data-en="Full-stack developer with an eye for business processes.">
+              Full-Stack-Entwickler mit einem Blick für Geschäftsprozesse.
+            </p>
+            <p class="reveal" data-de="Ich bin Full-Stack-Entwickler und ERP-Spezialist aus Remscheid. In den letzten Jahren habe ich Softwarelösungen für die internationale Automobilindustrie entwickelt, weltweite Software-Rollouts koordiniert und maßgeschneiderte CRM- und B2B-Systeme aufgebaut."
+               data-en="I'm a full-stack developer and ERP specialist from Remscheid, Germany. Over the past years I've built software for the international automotive industry, coordinated global software rollouts and developed custom CRM and B2B systems.">
+              Ich bin Full-Stack-Entwickler und ERP-Spezialist aus Remscheid. In den letzten Jahren habe ich Softwarelösungen für die internationale Automobilindustrie entwickelt, weltweite Software-Rollouts koordiniert und maßgeschneiderte CRM- und B2B-Systeme aufgebaut.
+            </p>
+            <p class="reveal" data-de="Aktuell schließe ich mein Studium der Wirtschaftsinformatik an der Universität Duisburg-Essen ab. Ich verbinde technische Tiefe mit betriebswirtschaftlichem Verständnis — und liebe es, komplexe Abläufe in klare, wartbare Lösungen zu übersetzen."
+               data-en="I'm currently completing my Business Informatics degree at the University of Duisburg-Essen. I combine technical depth with business understanding — and love turning complex workflows into clean, maintainable solutions.">
+              Aktuell schließe ich mein Studium der Wirtschaftsinformatik an der Universität Duisburg-Essen ab. Ich verbinde technische Tiefe mit betriebswirtschaftlichem Verständnis — und liebe es, komplexe Abläufe in klare, wartbare Lösungen zu übersetzen.
+            </p>
+
+            <div class="stats reveal">
+              <div class="stat">
+                <strong class="stat__num">6+</strong>
+                <span class="stat__label" data-de="Jahre in der Entwicklung" data-en="Years developing">Jahre in der Entwicklung</span>
+              </div>
+              <div class="stat">
+                <strong class="stat__num">4</strong>
+                <span class="stat__label" data-de="Länder im Software-Rollout" data-en="Countries in rollout">Länder im Software-Rollout</span>
+              </div>
+              <div class="stat">
+                <strong class="stat__num">3</strong>
+                <span class="stat__label" data-de="Sprachen fließend" data-en="Languages spoken">Sprachen fließend</span>
+              </div>
+            </div>
+
+            <figure class="quote reveal">
+              <blockquote data-de="„Er verfügt über eine außergewöhnliche Kreativität und überzeugte in hohem Maße durch sein ausgeprägtes technisches Verständnis — auch für schwierige Konstellationen fand er stets gute Lösungen.“"
+                          data-en="&ldquo;He possesses exceptional creativity and impressed greatly with his pronounced technical understanding — he always found good solutions, even for difficult situations.&rdquo;">
+                „Er verfügt über eine außergewöhnliche Kreativität und überzeugte in hohem Maße durch sein ausgeprägtes technisches Verständnis — auch für schwierige Konstellationen fand er stets gute Lösungen.“
+              </blockquote>
+              <figcaption data-de="— Arbeitszeugnis, Vorwerk Autotec GmbH & Co. KG" data-en="— Reference letter, Vorwerk Autotec GmbH & Co. KG">— Arbeitszeugnis, Vorwerk Autotec GmbH & Co. KG</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LEBENSLAUF ============ -->
+    <section class="section section--alt" id="cv">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__index">02</span>
+          <h2 class="section__title" data-de="Lebenslauf" data-en="Resume">Lebenslauf</h2>
+          <p class="section__sub" data-de="Beruflicher Werdegang & Ausbildung" data-en="Career & education">Beruflicher Werdegang & Ausbildung</p>
+        </div>
+
+        <div class="cv">
+          <h3 class="cv__heading reveal" data-de="Berufserfahrung" data-en="Experience">Berufserfahrung</h3>
+          <ol class="timeline">
+
+            <li class="timeline__item reveal">
+              <span class="timeline__dot"></span>
+              <span class="timeline__date">09/2025 – <span data-de="Heute" data-en="Present">Heute</span></span>
+              <div class="timeline__card">
+                <h4 class="timeline__role">Full Stack Developer / ERP-Spezialist</h4>
+                <p class="timeline__org">Vapor Handels GmbH</p>
+                <p class="timeline__text" data-de="Konzeption und Full-Stack-Entwicklung eines maßgeschneiderten CRM-Systems sowie einer B2B-Web-Applikation zur Prozessdigitalisierung. Implementierung eines Echtzeit-Produktions-Trackers für die Logistik und nahtlose Anbindung an das Plentymarkets-ERP via REST-API. Einsatz von LLMs zur Automatisierung interner Softwarelösungen."
+                   data-en="Designed and full-stack developed a custom CRM system and a B2B web application for process digitalization. Implemented a real-time production tracker for logistics and a seamless integration with the Plentymarkets ERP via REST API. Used LLMs to automate internal software solutions.">
+                  Konzeption und Full-Stack-Entwicklung eines maßgeschneiderten CRM-Systems sowie einer B2B-Web-Applikation zur Prozessdigitalisierung. Implementierung eines Echtzeit-Produktions-Trackers für die Logistik und nahtlose Anbindung an das Plentymarkets-ERP via REST-API. Einsatz von LLMs zur Automatisierung interner Softwarelösungen.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline__item reveal">
+              <span class="timeline__dot"></span>
+              <span class="timeline__date">01/2024 – 12/2024</span>
+              <div class="timeline__card">
+                <h4 class="timeline__role" data-de="Software Development Manager & Assistant Controller" data-en="Software Development Manager & Assistant Controller">Software Development Manager & Assistant Controller</h4>
+                <p class="timeline__org">Vorwerk & Sohn (Autotec)</p>
+                <p class="timeline__text" data-de="Leitung, Koordination und Einführung verschiedener Softwareprojekte an internationalen Standorten (China, Mexiko, Polen, Serbien) zur Förderung einheitlicher, digital unterstützter Workflows im globalen Unternehmensnetzwerk. Entwicklung und Ausbau von Anwendungen für Produktion und Instandhaltung in enger Zusammenarbeit mit dem Produktionsleiter und dem Head of IT."
+                   data-en="Led, coordinated and rolled out software projects across international sites (China, Mexico, Poland, Serbia) to enable unified, digitally supported workflows across the global company network. Developed and extended applications for production and maintenance in close collaboration with the production lead and the Head of IT.">
+                  Leitung, Koordination und Einführung verschiedener Softwareprojekte an internationalen Standorten (China, Mexiko, Polen, Serbien) zur Förderung einheitlicher, digital unterstützter Workflows im globalen Unternehmensnetzwerk. Entwicklung und Ausbau von Anwendungen für Produktion und Instandhaltung in enger Zusammenarbeit mit dem Produktionsleiter und dem Head of IT.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline__item reveal">
+              <span class="timeline__dot"></span>
+              <span class="timeline__date">12/2022 – 12/2023</span>
+              <div class="timeline__card">
+                <h4 class="timeline__role" data-de="Junior Software Developer (Werkstudent)" data-en="Junior Software Developer (working student)">Junior Software Developer (Werkstudent)</h4>
+                <p class="timeline__org">Vorwerk & Sohn (Autotec)</p>
+                <p class="timeline__text" data-de="Optimierung und Weiterentwicklung eines internen Webportals sowie Unterstützung im Controlling. Entwicklung und Ausbau von Anwendungen für Prototyping und Testing in enger Zusammenarbeit mit dem Managing Director."
+                   data-en="Optimised and extended an internal web portal and supported the controlling department. Built and expanded applications for prototyping and testing in close collaboration with the Managing Director.">
+                  Optimierung und Weiterentwicklung eines internen Webportals sowie Unterstützung im Controlling. Entwicklung und Ausbau von Anwendungen für Prototyping und Testing in enger Zusammenarbeit mit dem Managing Director.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline__item reveal">
+              <span class="timeline__dot"></span>
+              <span class="timeline__date">04/2022 – 10/2022</span>
+              <div class="timeline__card">
+                <h4 class="timeline__role" data-de="Werkstudent Software Development" data-en="Working Student, Software Development">Werkstudent Software Development</h4>
+                <p class="timeline__org">Magna BÖCO</p>
+                <p class="timeline__text" data-de="Entwicklung und Optimierung interner Softwarelösungen."
+                   data-en="Development and optimisation of internal software solutions.">
+                  Entwicklung und Optimierung interner Softwarelösungen.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline__item reveal">
+              <span class="timeline__dot"></span>
+              <span class="timeline__date">09/2021 – 03/2022</span>
+              <div class="timeline__card">
+                <h4 class="timeline__role">Fullstack .NET Web-Developer</h4>
+                <p class="timeline__org">Guardian Software</p>
+                <p class="timeline__text" data-de="Full-Stack-Entwicklung moderner, responsiver Webanwendungen mit dem .NET-Technologiestack für verschiedene Kundenprojekte. Eigenständige Umsetzung von Frontend, Backend-Logik und Datenbankintegration sowie enge Zusammenarbeit mit Webdesignern zur Optimierung der User Experience."
+                   data-en="Full-stack development of modern, responsive web applications with the .NET technology stack for various client projects. Independent implementation of frontend, backend logic and database integration, with close collaboration with web designers to optimise the user experience.">
+                  Full-Stack-Entwicklung moderner, responsiver Webanwendungen mit dem .NET-Technologiestack für verschiedene Kundenprojekte. Eigenständige Umsetzung von Frontend, Backend-Logik und Datenbankintegration sowie enge Zusammenarbeit mit Webdesignern zur Optimierung der User Experience.
+                </p>
+              </div>
+            </li>
+
+            <li class="timeline__item reveal">
+              <span class="timeline__dot"></span>
+              <span class="timeline__date">12/2018 – 02/2020</span>
+              <div class="timeline__card">
+                <h4 class="timeline__role" data-de="Webentwickler (freiberuflich)" data-en="Web Developer (freelance)">Webentwickler (freiberuflich)</h4>
+                <p class="timeline__org" data-de="Selbstständig · Kayseri, Türkei" data-en="Self-employed · Kayseri, Turkey">Selbstständig · Kayseri, Türkei</p>
+                <p class="timeline__text" data-de="Entwicklung und Betreuung von Unternehmenswebseiten für mehrere kleine und mittelständische Betriebe im industriellen Umfeld. Konzeption moderner, responsiver Webseiten mit Fokus auf strukturierte Darstellung von Leistungen und guter Wartbarkeit."
+                   data-en="Development and maintenance of company websites for several small and medium-sized industrial businesses. Designed modern, responsive websites with a focus on structured presentation of services and good maintainability.">
+                  Entwicklung und Betreuung von Unternehmenswebseiten für mehrere kleine und mittelständische Betriebe im industriellen Umfeld. Konzeption moderner, responsiver Webseiten mit Fokus auf strukturierte Darstellung von Leistungen und guter Wartbarkeit.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <h3 class="cv__heading reveal" data-de="Bildungsweg" data-en="Education">Bildungsweg</h3>
+          <ol class="timeline">
+            <li class="timeline__item reveal">
+              <span class="timeline__dot"></span>
+              <span class="timeline__date">10/2021 – <span data-de="vorauss. 08/2026" data-en="exp. 08/2026">vorauss. 08/2026</span></span>
+              <div class="timeline__card">
+                <h4 class="timeline__role" data-de="B.Sc. Wirtschaftsinformatik" data-en="B.Sc. Business Informatics">B.Sc. Wirtschaftsinformatik</h4>
+                <p class="timeline__org">Universität Duisburg-Essen</p>
+              </div>
+            </li>
+            <li class="timeline__item reveal">
+              <span class="timeline__dot"></span>
+              <span class="timeline__date">10/2017 – 07/2021</span>
+              <div class="timeline__card">
+                <h4 class="timeline__role" data-de="Bachelorstudium Angewandte Informatik (Wechsel in Wirtschaftsinformatik)" data-en="Applied Computer Science (switched to Business Informatics)">Bachelorstudium Angewandte Informatik (Wechsel in Wirtschaftsinformatik)</h4>
+                <p class="timeline__org">Universität Duisburg-Essen</p>
+              </div>
+            </li>
+            <li class="timeline__item reveal">
+              <span class="timeline__dot"></span>
+              <span class="timeline__date">2017</span>
+              <div class="timeline__card">
+                <h4 class="timeline__role" data-de="Abitur" data-en="Abitur (high school diploma)">Abitur</h4>
+                <p class="timeline__org">Leibniz-Gymnasium Remscheid</p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="cv__downloads reveal">
+            <a class="btn btn--primary" href="/assets/docs/Ahmet-Turan-Goezel-Lebenslauf.pdf" download>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.6l3.3-3.3a1 1 0 0 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 0 1 1.4-1.4L11 13.6V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z"/></svg>
+              <span data-de="Lebenslauf (PDF)" data-en="Resume (PDF)">Lebenslauf (PDF)</span>
+            </a>
+            <a class="btn btn--ghost" href="/assets/docs/Vorwerk-Arbeitszeugnis-Ahmet-Turan-Goezel.pdf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V7h3.5L13 3.5ZM8 12h8v1.5H8V12Zm0 3h8v1.5H8V15Zm0-6h4v1.5H8V9Z"/></svg>
+              <span data-de="Arbeitszeugnis ansehen" data-en="View reference letter">Arbeitszeugnis ansehen</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__index">03</span>
+          <h2 class="section__title" data-de="Skills & Technologien" data-en="Skills & technologies">Skills & Technologien</h2>
+          <p class="section__sub" data-de="Was ich in Projekte einbringe" data-en="What I bring to projects">Was ich in Projekte einbringe</p>
+        </div>
+
+        <div class="skills">
+          <div class="skills__col reveal">
+            <h3 class="skills__cat" data-de="Programmiersprachen" data-en="Programming languages">Programmiersprachen</h3>
+            <div class="bar" data-level="95"><span class="bar__label">Java / C#</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+            <div class="bar" data-level="90"><span class="bar__label">Python</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+            <div class="bar" data-level="90"><span class="bar__label">SQL</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+            <div class="bar" data-level="90"><span class="bar__label">JavaScript</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+            <div class="bar" data-level="75"><span class="bar__label">PHP</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+          </div>
+
+          <div class="skills__col reveal">
+            <h3 class="skills__cat" data-de="Frameworks & Web" data-en="Frameworks & web">Frameworks & Web</h3>
+            <div class="bar" data-level="95"><span class="bar__label">HTML / CSS</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+            <div class="bar" data-level="90"><span class="bar__label">React</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+            <div class="bar" data-level="80"><span class="bar__label">.NET</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+            <div class="bar" data-level="75"><span class="bar__label">Spring Framework</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+            <div class="bar" data-level="85"><span class="bar__label">REST APIs</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+          </div>
+
+          <div class="skills__col reveal">
+            <h3 class="skills__cat" data-de="Plattformen & Tools" data-en="Platforms & tools">Plattformen & Tools</h3>
+            <div class="bar" data-level="90"><span class="bar__label">Power Platform</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+            <div class="bar" data-level="90"><span class="bar__label">Microsoft 365</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+            <div class="bar" data-level="80"><span class="bar__label">Plentymarkets ERP</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+            <div class="bar" data-level="80"><span class="bar__label" data-de="LLM-/KI-Integration" data-en="LLM / AI integration">LLM-/KI-Integration</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+            <div class="bar" data-level="45"><span class="bar__label">SAP</span><span class="bar__track"><span class="bar__fill"></span></span></div>
+          </div>
+        </div>
+
+        <div class="languages reveal">
+          <h3 class="skills__cat" data-de="Sprachen" data-en="Languages">Sprachen</h3>
+          <div class="languages__grid">
+            <div class="lang-card">
+              <span class="lang-card__flag">🇩🇪</span>
+              <strong data-de="Deutsch" data-en="German">Deutsch</strong>
+              <span class="lang-card__level" data-de="Muttersprache" data-en="Native">Muttersprache</span>
+            </div>
+            <div class="lang-card">
+              <span class="lang-card__flag">🇹🇷</span>
+              <strong data-de="Türkisch" data-en="Turkish">Türkisch</strong>
+              <span class="lang-card__level" data-de="Fließend" data-en="Fluent">Fließend</span>
+            </div>
+            <div class="lang-card">
+              <span class="lang-card__flag">🇬🇧</span>
+              <strong data-de="Englisch" data-en="English">Englisch</strong>
+              <span class="lang-card__level" data-de="Fließend" data-en="Fluent">Fließend</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section section--alt" id="projects">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__index">04</span>
+          <h2 class="section__title" data-de="Projekte" data-en="Projects">Projekte</h2>
+          <p class="section__sub" data-de="Ausgewählte Arbeiten aus der Praxis" data-en="Selected work from practice">Ausgewählte Arbeiten aus der Praxis</p>
+        </div>
+
+        <div class="projects" id="projectGrid"><!-- injected by JS from data --></div>
+
+        <p class="projects__note reveal" data-de="Viele dieser Projekte entstanden im Unternehmensumfeld und unterliegen der Vertraulichkeit. Gerne gebe ich im persönlichen Gespräch tiefere Einblicke."
+           data-en="Many of these projects were built in a corporate context and are subject to confidentiality. I'm happy to share deeper insights in a personal conversation.">
+          Viele dieser Projekte entstanden im Unternehmensumfeld und unterliegen der Vertraulichkeit. Gerne gebe ich im persönlichen Gespräch tiefere Einblicke.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ VIDEO ============ -->
+    <section class="section" id="video">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__index">05</span>
+          <h2 class="section__title" data-de="Video-Vorstellung" data-en="Video intro">Video-Vorstellung</h2>
+          <p class="section__sub" data-de="Ein kurzer Einblick in meine Arbeitsweise" data-en="A short look at how I work">Ein kurzer Einblick in meine Arbeitsweise</p>
+        </div>
+
+        <!-- To enable: set data-video-id to your YouTube video ID (e.g. data-video-id="dQw4w9WgXcQ") -->
+        <div class="video reveal" id="videoFacade" data-video-id="">
+          <div class="video__inner">
+            <button class="video__play" type="button" data-de-aria="Video abspielen" data-en-aria="Play video" aria-label="Video abspielen">
+              <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7L8 5Z"/></svg>
+            </button>
+            <div class="video__placeholder">
+              <p class="video__soon" data-de="Video folgt in Kürze" data-en="Video coming soon">Video folgt in Kürze</p>
+              <p class="video__hint" data-de="Hier stelle ich mich, meine Sprachen und meine Skills in einem kurzen Clip vor."
+                 data-en="Here I'll introduce myself, my languages and my skills in a short clip.">
+                Hier stelle ich mich, meine Sprachen und meine Skills in einem kurzen Clip vor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--alt" id="contact">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__index">06</span>
+          <h2 class="section__title" data-de="Kontakt" data-en="Contact">Kontakt</h2>
+          <p class="section__sub" data-de="Lassen Sie uns sprechen" data-en="Let's talk">Lassen Sie uns sprechen</p>
+        </div>
+
+        <div class="contact">
+          <div class="contact__intro reveal">
+            <p class="contact__lead" data-de="Sie suchen einen Entwickler, der mitdenkt und Verantwortung übernimmt? Schreiben Sie mir — ich antworte in der Regel innerhalb eines Tages."
+               data-en="Looking for a developer who thinks along and takes ownership? Drop me a message — I usually reply within a day.">
+              Sie suchen einen Entwickler, der mitdenkt und Verantwortung übernimmt? Schreiben Sie mir — ich antworte in der Regel innerhalb eines Tages.
+            </p>
+            <ul class="contact__list">
+              <li>
+                <span class="contact__ico" aria-hidden="true">✉</span>
+                <a href="mailto:Ahmet.Goezel@outlook.com">Ahmet.Goezel@outlook.com</a>
+              </li>
+              <li>
+                <span class="contact__ico" aria-hidden="true">in</span>
+                <a href="https://www.linkedin.com/in/ahmet-turan-g%C3%B6zel-09b150219/" target="_blank" rel="noopener">LinkedIn-Profil</a>
+              </li>
+              <li>
+                <span class="contact__ico" aria-hidden="true">⌖</span>
+                <span data-de="Remscheid, Deutschland" data-en="Remscheid, Germany">Remscheid, Deutschland</span>
+              </li>
+            </ul>
+            <p class="contact__avail">
+              <span class="status-dot"></span>
+              <span data-de="Offen für Festanstellung & Projekte" data-en="Open to full-time roles & projects">Offen für Festanstellung & Projekte</span>
+            </p>
+          </div>
+
+          <!-- Web3Forms: replace the access_key value with your own key from https://web3forms.com -->
+          <form class="contact__form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+            <input type="hidden" name="subject" value="Neue Nachricht über das Portfolio" />
+            <input type="hidden" name="from_name" value="turangoezel.is-a.dev" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="field">
+              <label for="cf-name" data-de="Name" data-en="Name">Name</label>
+              <input id="cf-name" name="name" type="text" required autocomplete="name"
+                     data-de-placeholder="Ihr Name" data-en-placeholder="Your name" placeholder="Ihr Name" />
+            </div>
+            <div class="field">
+              <label for="cf-email" data-de="E-Mail" data-en="Email">E-Mail</label>
+              <input id="cf-email" name="email" type="email" required autocomplete="email"
+                     data-de-placeholder="ihre@email.de" data-en-placeholder="your@email.com" placeholder="ihre@email.de" />
+            </div>
+            <div class="field">
+              <label for="cf-subject" data-de="Betreff" data-en="Subject">Betreff</label>
+              <input id="cf-subject" name="betreff" type="text"
+                     data-de-placeholder="Worum geht es?" data-en-placeholder="What's it about?" placeholder="Worum geht es?" />
+            </div>
+            <div class="field">
+              <label for="cf-message" data-de="Nachricht" data-en="Message">Nachricht</label>
+              <textarea id="cf-message" name="message" rows="5" required
+                        data-de-placeholder="Ihre Nachricht …" data-en-placeholder="Your message …" placeholder="Ihre Nachricht …"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full" id="cfSubmit">
+              <span data-de="Nachricht senden" data-en="Send message">Nachricht senden</span>
+            </button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            <p class="form-note" data-de="Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben zur Bearbeitung der Anfrage zu. Details in der Datenschutzerklärung."
+               data-en="By submitting you agree to your data being processed to handle your request. See the privacy policy for details.">
+              Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben zur Bearbeitung der Anfrage zu. Details in der Datenschutzerklärung.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__mark">ATG</span>
+        <p data-de="Full-Stack-Entwickler & ERP-Spezialist aus Remscheid." data-en="Full-stack developer & ERP specialist from Remscheid.">Full-Stack-Entwickler & ERP-Spezialist aus Remscheid.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#about" data-de="Über mich" data-en="About">Über mich</a>
+        <a href="#cv" data-de="Lebenslauf" data-en="Resume">Lebenslauf</a>
+        <a href="#projects" data-de="Projekte" data-en="Projects">Projekte</a>
+        <a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+        <a href="/impressum.html" data-de="Impressum" data-en="Imprint">Impressum</a>
+        <a href="/datenschutz.html" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
+      </nav>
+      <div class="footer__social">
+        <a href="https://www.linkedin.com/in/ahmet-turan-g%C3%B6zel-09b150219/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM3 8.5h3.9V21H3V8.5Zm6.5 0h3.7v1.7h.1c.5-1 1.8-2 3.7-2 3.9 0 4.6 2.6 4.6 5.9V21h-3.9v-5.5c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9.5V8.5Z"/></svg>
+        </a>
+        <a href="mailto:Ahmet.Goezel@outlook.com" aria-label="E-Mail" class="social-link">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.5L4.5 7v11h15V7L12 12.5Zm0-2L19 6H5l7 4.5Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© <span id="year">2026</span> Ahmet Turan Gözel</span>
+      <span data-de="Mit Sorgfalt gebaut · Hosting über GitHub Pages" data-en="Crafted with care · Hosted on GitHub Pages">Mit Sorgfalt gebaut · Hosting über GitHub Pages</span>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" type="button" data-de-aria="Nach oben" data-en-aria="Back to top" aria-label="Nach oben">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 8.4 6.7 13.7a1 1 0 0 1-1.4-1.4l6-6a1 1 0 0 1 1.4 0l6 6a1 1 0 0 1-1.4 1.4L12 8.4Z"/></svg>
+  </button>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

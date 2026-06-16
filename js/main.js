@@ -1,0 +1,254 @@
+/* ============================================================
+   Ahmet Turan Gözel — Portfolio interactions
+   ============================================================ */
+(function () {
+  'use strict';
+  const $  = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+
+  /* ---------- Year ---------- */
+  const yearEl = $('#year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ---------- Theme ---------- */
+  const root = document.documentElement;
+  $('#themeToggle')?.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  /* ---------- Language (DE / EN) ---------- */
+  const langToggle = $('#langToggle');
+
+  function applyLang(lang) {
+    root.setAttribute('lang', lang);
+    $$('[data-de]').forEach(el => {
+      const v = el.getAttribute('data-' + lang);
+      if (v !== null) el.textContent = v;
+    });
+    $$('[data-de-placeholder]').forEach(el => {
+      const v = el.getAttribute('data-' + lang + '-placeholder');
+      if (v !== null) el.setAttribute('placeholder', v);
+    });
+    $$('[data-de-aria]').forEach(el => {
+      const v = el.getAttribute('data-' + lang + '-aria');
+      if (v !== null) el.setAttribute('aria-label', v);
+    });
+    $$('.lang-toggle__opt').forEach(o =>
+      o.classList.toggle('is-active', o.getAttribute('data-lang-opt') === lang)
+    );
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+
+  let currentLang = 'de';
+  try { currentLang = localStorage.getItem('lang') || 'de'; } catch (e) {}
+
+  langToggle?.addEventListener('click', () => {
+    currentLang = currentLang === 'de' ? 'en' : 'de';
+    applyLang(currentLang);
+  });
+
+  /* ---------- Mobile menu ---------- */
+  const nav = $('#nav');
+  const burger = $('#hamburger');
+  function closeMenu() {
+    nav?.classList.remove('is-open');
+    burger?.setAttribute('aria-expanded', 'false');
+  }
+  burger?.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', String(open));
+  });
+  $$('.nav__link').forEach(l => l.addEventListener('click', closeMenu));
+
+  /* ---------- Header scrolled + to-top ---------- */
+  const header = $('#header');
+  const toTop = $('#toTop');
+  const onScroll = () => {
+    const y = window.scrollY;
+    header?.classList.toggle('is-scrolled', y > 12);
+    toTop?.classList.toggle('is-visible', y > 600);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  toTop?.addEventListener('click', () =>
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  );
+
+  /* ---------- Projects data ---------- */
+  const projects = [
+    {
+      icon: '🗂️', title: 'Maßgeschneidertes CRM-System', org: 'Vapor Handels GmbH',
+      de: 'Konzeption und Full-Stack-Entwicklung eines individuellen CRM-Systems zur zentralen Verwaltung von Kunden, Angeboten und Prozessen.',
+      en: 'Designed and full-stack built a custom CRM system for central management of customers, quotes and processes.',
+      tags: ['React', 'Node.js', 'REST API', 'SQL'],
+      badgeDe: 'Berufliches Projekt', badgeEn: 'Professional work'
+    },
+    {
+      icon: '🔗', title: 'B2B-Web-Applikation', org: 'Vapor Handels GmbH',
+      de: 'Entwicklung einer B2B-Plattform zur Digitalisierung von Geschäftsprozessen mit nahtloser Anbindung an das Plentymarkets-ERP.',
+      en: 'Built a B2B platform to digitalise business processes with a seamless integration into the Plentymarkets ERP.',
+      tags: ['React', 'REST API', 'Plentymarkets'],
+      badgeDe: 'Berufliches Projekt', badgeEn: 'Professional work'
+    },
+    {
+      icon: '📦', title: 'Echtzeit-Produktions-Tracker', org: 'Vapor Handels GmbH',
+      de: 'Implementierung eines Echtzeit-Trackers für die Logistik, der Produktions- und Versandstatus live abbildet und LLMs zur Automatisierung nutzt.',
+      en: 'Implemented a real-time logistics tracker that visualises production and shipping status live and uses LLMs for automation.',
+      tags: ['Echtzeit', 'REST API', 'LLM', 'Logistik'],
+      badgeDe: 'Berufliches Projekt', badgeEn: 'Professional work'
+    },
+    {
+      icon: '🛠️', title: 'Maintenance-App mit MES-Schnittstelle', org: 'Vorwerk Autotec',
+      de: 'Entwicklung einer Power-App inkl. MES-Schnittstelle für den Standort Wuppertal, über die Wartungs-Tickets erstellt und bearbeitet werden.',
+      en: 'Built a Power App including an MES interface for the Wuppertal site, used to create and process maintenance tickets.',
+      tags: ['Power Platform', 'MES', 'Power Apps'],
+      badgeDe: 'Berufliches Projekt', badgeEn: 'Professional work'
+    },
+    {
+      icon: '🧭', title: 'Power-Apps-Unternehmensportal', org: 'Vorwerk Autotec',
+      de: 'Aufbau eines zentralen Portals in Power Apps mit Zugang zu verschiedenen Anwendungen inklusive Berechtigungsverwaltung.',
+      en: 'Built a central portal in Power Apps providing access to multiple applications including permission management.',
+      tags: ['Power Platform', 'Microsoft 365', 'Auth'],
+      badgeDe: 'Berufliches Projekt', badgeEn: 'Professional work'
+    },
+    {
+      icon: '🌍', title: 'Internationaler Software-Rollout', org: 'Vorwerk Autotec',
+      de: 'Leitung und Einführung von Softwareprojekten an Standorten in China, Mexiko, Polen und Serbien für einheitliche, digitale Workflows.',
+      en: 'Led and rolled out software projects at sites in China, Mexico, Poland and Serbia to establish unified, digital workflows.',
+      tags: ['Rollout', 'Controlling', '.NET'],
+      badgeDe: 'Berufliches Projekt', badgeEn: 'Professional work'
+    }
+  ];
+
+  const grid = $('#projectGrid');
+  if (grid) {
+    grid.innerHTML = projects.map(p => `
+      <article class="project reveal">
+        <div class="project__top">
+          <span class="project__badge" data-de="${p.badgeDe}" data-en="${p.badgeEn}">${p.badgeDe}</span>
+          <span class="project__icon" aria-hidden="true">${p.icon}</span>
+        </div>
+        <div class="project__body">
+          <h3 class="project__title">${p.title}</h3>
+          <p class="project__org">${p.org}</p>
+          <p class="project__desc" data-de="${p.de}" data-en="${p.en}">${p.de}</p>
+          <div class="project__tags">
+            ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+          </div>
+        </div>
+      </article>
+    `).join('');
+  }
+
+  /* ---------- Apply saved language now that DOM (incl. projects) is built ---------- */
+  applyLang(currentLang);
+
+  /* ---------- Reveal on scroll ---------- */
+  const revealEls = $$('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+
+  /* ---------- Skill bars ---------- */
+  const bars = $$('.bar');
+  if ('IntersectionObserver' in window) {
+    const bio = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const lvl = e.target.getAttribute('data-level') || 0;
+          const fill = $('.bar__fill', e.target);
+          if (fill) fill.style.width = lvl + '%';
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    bars.forEach(b => bio.observe(b));
+  } else {
+    bars.forEach(b => { const f = $('.bar__fill', b); if (f) f.style.width = (b.getAttribute('data-level') || 0) + '%'; });
+  }
+
+  /* ---------- Scrollspy ---------- */
+  const sections = $$('main section[id]');
+  const navLinks = $$('.nav__link');
+  if ('IntersectionObserver' in window && sections.length) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.getAttribute('id');
+          navLinks.forEach(l =>
+            l.classList.toggle('is-active', l.getAttribute('href') === '#' + id)
+          );
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(s => spy.observe(s));
+  }
+
+  /* ---------- Video facade (GDPR: load only on click, no-cookie domain) ---------- */
+  const facade = $('#videoFacade');
+  facade?.querySelector('.video__play')?.addEventListener('click', () => {
+    const id = facade.getAttribute('data-video-id');
+    if (!id) return; // no video configured yet
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+    iframe.title = 'Video — Ahmet Turan Gözel';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    facade.innerHTML = '';
+    facade.appendChild(iframe);
+  });
+
+  /* ---------- Contact form (Web3Forms) ---------- */
+  const form = $('#contactForm');
+  const statusEl = $('#formStatus');
+  const submitBtn = $('#cfSubmit');
+  form?.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    if (!statusEl) return;
+    const key = form.querySelector('[name="access_key"]')?.value;
+    statusEl.className = 'form-status';
+
+    if (!key || key === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+      statusEl.classList.add('is-err');
+      statusEl.textContent = currentLang === 'de'
+        ? 'Kontaktformular ist noch nicht konfiguriert. Bitte per E-Mail melden.'
+        : 'Contact form is not configured yet. Please reach out via email.';
+      return;
+    }
+
+    const original = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.style.opacity = '.7'; }
+    statusEl.textContent = currentLang === 'de' ? 'Wird gesendet …' : 'Sending …';
+
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        statusEl.classList.add('is-ok');
+        statusEl.textContent = currentLang === 'de'
+          ? '✓ Vielen Dank! Ihre Nachricht wurde gesendet.'
+          : '✓ Thank you! Your message has been sent.';
+        form.reset();
+      } else { throw new Error(data.message || 'failed'); }
+    } catch (err) {
+      statusEl.classList.add('is-err');
+      statusEl.textContent = currentLang === 'de'
+        ? 'Etwas ist schiefgelaufen. Bitte später erneut versuchen oder per E-Mail melden.'
+        : 'Something went wrong. Please try again later or reach out via email.';
+    } finally {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.style.opacity = ''; submitBtn.innerHTML = original; }
+    }
+  });
+})();

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://turangoezel.is-a.dev/sitemap.xml
