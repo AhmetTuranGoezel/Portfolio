@@ -167,12 +167,12 @@
     <section class="section" id="about">
       <div class="container">
         <div class="section__head reveal">
-          <span class="section__index">01</span>
+          <span class="section__index scroll-rise">01</span>
           <h2 class="section__title" data-de="Über mich" data-en="About me">Über mich</h2>
         </div>
 
         <div class="about">
-          <div class="about__media reveal">
+          <div class="about__media reveal reveal--zoom">
             <img src="/assets/img/profile-wide.jpg" width="1100" height="733"
                  alt="Ahmet Turan Gözel" loading="lazy" class="about__photo" />
           </div>
@@ -191,7 +191,7 @@
               Aktuell schließe ich mein Studium der Wirtschaftsinformatik an der Uni Duisburg-Essen ab. Ich kann nicht nur programmieren, sondern auch den fachlichen Kontext dahinter einordnen. Das hilft beim Bauen von Software, die am Ende auch wirklich genutzt wird.
             </p>
 
-            <div class="stats reveal">
+            <div class="stats reveal reveal--scale-up">
               <div class="stat">
                 <strong class="stat__num" data-count="6" data-suffix="+">6+</strong>
                 <span class="stat__label" data-de="Jahre in der Entwicklung" data-en="Years developing">Jahre in der Entwicklung</span>
@@ -206,7 +206,7 @@
               </div>
             </div>
 
-            <figure class="quote reveal">
+            <figure class="quote reveal reveal--left">
               <blockquote data-de="„Er verfügt über eine außergewöhnliche Kreativität und überzeugte in hohem Maße durch sein ausgeprägtes technisches Verständnis — auch für schwierige Konstellationen fand er stets gute Lösungen.“"
                           data-en="&ldquo;He possesses exceptional creativity and impressed greatly with his pronounced technical understanding — he always found good solutions, even for difficult situations.&rdquo;">
                 „Er verfügt über eine außergewöhnliche Kreativität und überzeugte in hohem Maße durch sein ausgeprägtes technisches Verständnis — auch für schwierige Konstellationen fand er stets gute Lösungen.“
@@ -222,63 +222,52 @@
     <section class="section section--alt" id="cv">
       <div class="container">
         <div class="section__head reveal">
-          <span class="section__index">02</span>
+          <span class="section__index scroll-rise">02</span>
           <h2 class="section__title" data-de="Lebenslauf" data-en="Resume">Lebenslauf</h2>
           <p class="section__sub" data-de="Beruflicher Werdegang & Ausbildung" data-en="Career & education">Beruflicher Werdegang & Ausbildung</p>
         </div>
 
         <div class="cv tl-progress" id="cvTimeline">
+          <h3 class="cv__heading reveal" data-de="Bildungsweg" data-en="Education">Bildungsweg</h3>
+          <ol class="timeline">
+            <li class="timeline__item reveal">
+              <span class="timeline__dot"></span>
+              <span class="timeline__date">2017</span>
+              <div class="timeline__card">
+                <h4 class="timeline__role" data-de="Abitur" data-en="Abitur (high school diploma)">Abitur</h4>
+                <p class="timeline__org">Leibniz-Gymnasium Remscheid</p>
+              </div>
+            </li>
+            <li class="timeline__item reveal">
+              <span class="timeline__dot"></span>
+              <span class="timeline__date">10/2017 – 07/2021</span>
+              <div class="timeline__card">
+                <h4 class="timeline__role" data-de="Bachelorstudium Angewandte Informatik (Wechsel in Wirtschaftsinformatik)" data-en="Applied Computer Science (switched to Business Informatics)">Bachelorstudium Angewandte Informatik (Wechsel in Wirtschaftsinformatik)</h4>
+                <p class="timeline__org">Universität Duisburg-Essen</p>
+              </div>
+            </li>
+            <li class="timeline__item reveal">
+              <span class="timeline__dot"></span>
+              <span class="timeline__date">10/2021 – <span data-de="vorauss. 08/2026" data-en="exp. 08/2026">vorauss. 08/2026</span></span>
+              <div class="timeline__card">
+                <h4 class="timeline__role" data-de="B.Sc. Wirtschaftsinformatik" data-en="B.Sc. Business Informatics">B.Sc. Wirtschaftsinformatik</h4>
+                <p class="timeline__org">Universität Duisburg-Essen</p>
+              </div>
+            </li>
+          </ol>
+
           <h3 class="cv__heading reveal" data-de="Berufserfahrung" data-en="Experience">Berufserfahrung</h3>
           <ol class="timeline">
 
             <li class="timeline__item reveal">
               <span class="timeline__dot"></span>
-              <span class="timeline__date">09/2025 – <span data-de="Heute" data-en="Present">Heute</span></span>
+              <span class="timeline__date">12/2018 – 02/2020</span>
               <div class="timeline__card">
-                <h4 class="timeline__role">Full Stack Developer / ERP-Spezialist</h4>
-                <p class="timeline__org">Vapor Handels GmbH</p>
-                <p class="timeline__text" data-de="Eigenes CRM-System und eine B2B-Web-App von Grund auf gebaut. Dazu einen Echtzeit-Tracker für Produktion und Versand entwickelt, direkt angebunden an Plentymarkets über REST-API. Außerdem LLMs eingesetzt, um interne Abläufe zu automatisieren."
-                   data-en="Built a custom CRM system and a B2B web app from scratch. Also developed a real-time tracker for production and shipping, connected directly to Plentymarkets via REST API. Plus LLM-based automation for internal workflows.">
-                  Eigenes CRM-System und eine B2B-Web-App von Grund auf gebaut. Dazu einen Echtzeit-Tracker für Produktion und Versand entwickelt, direkt angebunden an Plentymarkets über REST-API. Außerdem LLMs eingesetzt, um interne Abläufe zu automatisieren.
-                </p>
-              </div>
-            </li>
-
-            <li class="timeline__item reveal">
-              <span class="timeline__dot"></span>
-              <span class="timeline__date">01/2024 – 12/2024</span>
-              <div class="timeline__card">
-                <h4 class="timeline__role" data-de="Software Development Manager & Assistant Controller" data-en="Software Development Manager & Assistant Controller">Software Development Manager & Assistant Controller</h4>
-                <p class="timeline__org">Vorwerk & Sohn (Autotec)</p>
-                <p class="timeline__text" data-de="Softwareprojekte an internationalen Standorten eingeführt: China, Mexiko, Polen, Serbien. Ziel war, dass alle Werke mit denselben digitalen Prozessen arbeiten. Gleichzeitig Apps für Produktion und Instandhaltung weiterentwickelt, zusammen mit dem Produktionsleiter und dem Head of IT."
-                   data-en="Rolled out software projects at international sites: China, Mexico, Poland, Serbia. The goal was getting all plants on the same digital processes. Also built and extended apps for production and maintenance together with the production lead and Head of IT.">
-                  Softwareprojekte an internationalen Standorten eingeführt: China, Mexiko, Polen, Serbien. Ziel war, dass alle Werke mit denselben digitalen Prozessen arbeiten. Gleichzeitig Apps für Produktion und Instandhaltung weiterentwickelt, zusammen mit dem Produktionsleiter und dem Head of IT.
-                </p>
-              </div>
-            </li>
-
-            <li class="timeline__item reveal">
-              <span class="timeline__dot"></span>
-              <span class="timeline__date">12/2022 – 12/2023</span>
-              <div class="timeline__card">
-                <h4 class="timeline__role" data-de="Junior Software Developer (Werkstudent)" data-en="Junior Software Developer (working student)">Junior Software Developer (Werkstudent)</h4>
-                <p class="timeline__org">Vorwerk & Sohn (Autotec)</p>
-                <p class="timeline__text" data-de="Internes Webportal weiterentwickelt und im Controlling unterstützt. Anwendungen für Prototyping und Testing gebaut, direkt mit dem Managing Director abgestimmt."
-                   data-en="Extended an internal web portal and supported the controlling team. Built prototyping and testing apps, working directly with the Managing Director.">
-                  Internes Webportal weiterentwickelt und im Controlling unterstützt. Anwendungen für Prototyping und Testing gebaut, direkt mit dem Managing Director abgestimmt.
-                </p>
-              </div>
-            </li>
-
-            <li class="timeline__item reveal">
-              <span class="timeline__dot"></span>
-              <span class="timeline__date">04/2022 – 10/2022</span>
-              <div class="timeline__card">
-                <h4 class="timeline__role" data-de="Werkstudent Software Development" data-en="Working Student, Software Development">Werkstudent Software Development</h4>
-                <p class="timeline__org">Magna BÖCO</p>
-                <p class="timeline__text" data-de="Entwicklung und Optimierung interner Softwarelösungen."
-                   data-en="Development and optimisation of internal software solutions.">
-                  Entwicklung und Optimierung interner Softwarelösungen.
+                <h4 class="timeline__role" data-de="Webentwickler (freiberuflich)" data-en="Web Developer (freelance)">Webentwickler (freiberuflich)</h4>
+                <p class="timeline__org" data-de="Selbstständig · Kayseri, Türkei" data-en="Self-employed · Kayseri, Turkey">Selbstständig · Kayseri, Türkei</p>
+                <p class="timeline__text" data-de="Webseiten für kleine und mittelständische Industriebetriebe gebaut und betreut. Leistungen sauber darstellen, einfach zu pflegen. Das war der Fokus."
+                   data-en="Built and maintained websites for small and mid-sized industrial companies. Focus was on presenting their services clearly and keeping things easy to maintain.">
+                  Webseiten für kleine und mittelständische Industriebetriebe gebaut und betreut. Leistungen sauber darstellen, einfach zu pflegen. Das war der Fokus.
                 </p>
               </div>
             </li>
@@ -298,42 +287,53 @@
 
             <li class="timeline__item reveal">
               <span class="timeline__dot"></span>
-              <span class="timeline__date">12/2018 – 02/2020</span>
+              <span class="timeline__date">04/2022 – 10/2022</span>
               <div class="timeline__card">
-                <h4 class="timeline__role" data-de="Webentwickler (freiberuflich)" data-en="Web Developer (freelance)">Webentwickler (freiberuflich)</h4>
-                <p class="timeline__org" data-de="Selbstständig · Kayseri, Türkei" data-en="Self-employed · Kayseri, Turkey">Selbstständig · Kayseri, Türkei</p>
-                <p class="timeline__text" data-de="Webseiten für kleine und mittelständische Industriebetriebe gebaut und betreut. Leistungen sauber darstellen, einfach zu pflegen. Das war der Fokus."
-                   data-en="Built and maintained websites for small and mid-sized industrial companies. Focus was on presenting their services clearly and keeping things easy to maintain.">
-                  Webseiten für kleine und mittelständische Industriebetriebe gebaut und betreut. Leistungen sauber darstellen, einfach zu pflegen. Das war der Fokus.
+                <h4 class="timeline__role" data-de="Werkstudent Software Development" data-en="Working Student, Software Development">Werkstudent Software Development</h4>
+                <p class="timeline__org">Magna BÖCO</p>
+                <p class="timeline__text" data-de="Entwicklung und Optimierung interner Softwarelösungen."
+                   data-en="Development and optimisation of internal software solutions.">
+                  Entwicklung und Optimierung interner Softwarelösungen.
                 </p>
               </div>
             </li>
-          </ol>
 
-          <h3 class="cv__heading reveal" data-de="Bildungsweg" data-en="Education">Bildungsweg</h3>
-          <ol class="timeline">
             <li class="timeline__item reveal">
               <span class="timeline__dot"></span>
-              <span class="timeline__date">10/2021 – <span data-de="vorauss. 08/2026" data-en="exp. 08/2026">vorauss. 08/2026</span></span>
+              <span class="timeline__date">12/2022 – 12/2023</span>
               <div class="timeline__card">
-                <h4 class="timeline__role" data-de="B.Sc. Wirtschaftsinformatik" data-en="B.Sc. Business Informatics">B.Sc. Wirtschaftsinformatik</h4>
-                <p class="timeline__org">Universität Duisburg-Essen</p>
+                <h4 class="timeline__role" data-de="Junior Software Developer (Werkstudent)" data-en="Junior Software Developer (working student)">Junior Software Developer (Werkstudent)</h4>
+                <p class="timeline__org">Vorwerk & Sohn (Autotec)</p>
+                <p class="timeline__text" data-de="Internes Webportal weiterentwickelt und im Controlling unterstützt. Anwendungen für Prototyping und Testing gebaut, direkt mit dem Managing Director abgestimmt."
+                   data-en="Extended an internal web portal and supported the controlling team. Built prototyping and testing apps, working directly with the Managing Director.">
+                  Internes Webportal weiterentwickelt und im Controlling unterstützt. Anwendungen für Prototyping und Testing gebaut, direkt mit dem Managing Director abgestimmt.
+                </p>
               </div>
             </li>
+
             <li class="timeline__item reveal">
               <span class="timeline__dot"></span>
-              <span class="timeline__date">10/2017 – 07/2021</span>
+              <span class="timeline__date">01/2024 – 12/2024</span>
               <div class="timeline__card">
-                <h4 class="timeline__role" data-de="Bachelorstudium Angewandte Informatik (Wechsel in Wirtschaftsinformatik)" data-en="Applied Computer Science (switched to Business Informatics)">Bachelorstudium Angewandte Informatik (Wechsel in Wirtschaftsinformatik)</h4>
-                <p class="timeline__org">Universität Duisburg-Essen</p>
+                <h4 class="timeline__role" data-de="Software Development Manager & Assistant Controller" data-en="Software Development Manager & Assistant Controller">Software Development Manager & Assistant Controller</h4>
+                <p class="timeline__org">Vorwerk & Sohn (Autotec)</p>
+                <p class="timeline__text" data-de="Softwareprojekte an internationalen Standorten eingeführt: China, Mexiko, Polen, Serbien. Ziel war, dass alle Werke mit denselben digitalen Prozessen arbeiten. Gleichzeitig Apps für Produktion und Instandhaltung weiterentwickelt, zusammen mit dem Produktionsleiter und dem Head of IT."
+                   data-en="Rolled out software projects at international sites: China, Mexico, Poland, Serbia. The goal was getting all plants on the same digital processes. Also built and extended apps for production and maintenance together with the production lead and Head of IT.">
+                  Softwareprojekte an internationalen Standorten eingeführt: China, Mexiko, Polen, Serbien. Ziel war, dass alle Werke mit denselben digitalen Prozessen arbeiten. Gleichzeitig Apps für Produktion und Instandhaltung weiterentwickelt, zusammen mit dem Produktionsleiter und dem Head of IT.
+                </p>
               </div>
             </li>
+
             <li class="timeline__item reveal">
               <span class="timeline__dot"></span>
-              <span class="timeline__date">2017</span>
+              <span class="timeline__date">09/2025 – <span data-de="Heute" data-en="Present">Heute</span></span>
               <div class="timeline__card">
-                <h4 class="timeline__role" data-de="Abitur" data-en="Abitur (high school diploma)">Abitur</h4>
-                <p class="timeline__org">Leibniz-Gymnasium Remscheid</p>
+                <h4 class="timeline__role">Full Stack Developer / ERP-Spezialist</h4>
+                <p class="timeline__org">Vapor Handels GmbH</p>
+                <p class="timeline__text" data-de="Eigenes CRM-System und eine B2B-Web-App von Grund auf gebaut. Dazu einen Echtzeit-Tracker für Produktion und Versand entwickelt, direkt angebunden an Plentymarkets über REST-API. Außerdem LLMs eingesetzt, um interne Abläufe zu automatisieren."
+                   data-en="Built a custom CRM system and a B2B web app from scratch. Also developed a real-time tracker for production and shipping, connected directly to Plentymarkets via REST API. Plus LLM-based automation for internal workflows.">
+                  Eigenes CRM-System und eine B2B-Web-App von Grund auf gebaut. Dazu einen Echtzeit-Tracker für Produktion und Versand entwickelt, direkt angebunden an Plentymarkets über REST-API. Außerdem LLMs eingesetzt, um interne Abläufe zu automatisieren.
+                </p>
               </div>
             </li>
           </ol>
@@ -356,14 +356,14 @@
     <section class="section" id="skills">
       <div class="container">
         <div class="section__head reveal">
-          <span class="section__index">03</span>
+          <span class="section__index scroll-rise">03</span>
           <h2 class="section__title" data-de="Skills & Technologien" data-en="Skills & technologies">Skills & Technologien</h2>
           <p class="section__sub" data-de="Was ich in Projekte einbringe" data-en="What I bring to projects">Was ich in Projekte einbringe</p>
         </div>
 
         <div class="skills">
           <div class="skill-group reveal">
-            <h3 class="skill-group__title" data-de="Programmiersprachen" data-en="Programming languages">Programmiersprachen</h3>
+            <h3 class="skill-group__title scroll-rise" data-de="Programmiersprachen" data-en="Programming languages">Programmiersprachen</h3>
             <ul class="skill-chips">
               <li class="chip" data-level="80"><img class="chip__icon" src="/assets/img/icons/java.svg" alt="" width="20" height="20" loading="lazy" /><span>Java</span><span class="chip__bar" aria-hidden="true"></span></li>
               <li class="chip" data-level="85"><img class="chip__icon" src="/assets/img/icons/csharp.svg" alt="" width="20" height="20" loading="lazy" /><span>C#</span><span class="chip__bar" aria-hidden="true"></span></li>
@@ -375,7 +375,7 @@
           </div>
 
           <div class="skill-group reveal">
-            <h3 class="skill-group__title" data-de="Frameworks & Web" data-en="Frameworks & web">Frameworks & Web</h3>
+            <h3 class="skill-group__title scroll-rise" data-de="Frameworks & Web" data-en="Frameworks & web">Frameworks & Web</h3>
             <ul class="skill-chips">
               <li class="chip" data-level="85"><img class="chip__icon" src="/assets/img/icons/react.svg" alt="" width="20" height="20" loading="lazy" /><span>React</span><span class="chip__bar" aria-hidden="true"></span></li>
               <li class="chip" data-level="85"><img class="chip__icon" src="/assets/img/icons/dotnet.svg" alt="" width="20" height="20" loading="lazy" /><span>.NET</span><span class="chip__bar" aria-hidden="true"></span></li>
@@ -386,7 +386,7 @@
           </div>
 
           <div class="skill-group reveal">
-            <h3 class="skill-group__title" data-de="Plattformen & Tools" data-en="Platforms & tools">Plattformen & Tools</h3>
+            <h3 class="skill-group__title scroll-rise" data-de="Plattformen & Tools" data-en="Platforms & tools">Plattformen & Tools</h3>
             <ul class="skill-chips">
               <li class="chip" data-level="80"><img class="chip__icon" src="/assets/img/icons/powerplatform.svg" alt="" width="20" height="20" loading="lazy" /><span>Power Platform</span><span class="chip__bar" aria-hidden="true"></span></li>
               <li class="chip" data-level="75"><img class="chip__icon" src="/assets/img/icons/microsoft365.svg" alt="" width="20" height="20" loading="lazy" /><span>Microsoft 365</span><span class="chip__bar" aria-hidden="true"></span></li>
@@ -399,7 +399,7 @@
         </div>
 
         <div class="languages reveal">
-          <h3 class="skill-group__title" data-de="Sprachen" data-en="Languages">Sprachen</h3>
+          <h3 class="skill-group__title scroll-rise" data-de="Sprachen" data-en="Languages">Sprachen</h3>
           <div class="languages__grid">
             <div class="lang-card">
               <span class="lang-card__flag">🇩🇪</span>
@@ -425,7 +425,7 @@
     <section class="section section--alt" id="projects">
       <div class="container">
         <div class="section__head reveal">
-          <span class="section__index">04</span>
+          <span class="section__index scroll-rise">04</span>
           <h2 class="section__title" data-de="Projekte" data-en="Projects">Projekte</h2>
           <p class="section__sub" data-de="Was ich bisher so gebaut habe" data-en="Some of the things I've built">Was ich bisher so gebaut habe</p>
         </div>
@@ -443,7 +443,7 @@
     <section class="section" id="video">
       <div class="container">
         <div class="section__head reveal">
-          <span class="section__index">05</span>
+          <span class="section__index scroll-rise">05</span>
           <h2 class="section__title" data-de="Video-Vorstellung" data-en="Video intro">Video-Vorstellung</h2>
           <p class="section__sub" data-de="Ein kurzer Einblick in meine Arbeitsweise" data-en="A short look at how I work">Ein kurzer Einblick in meine Arbeitsweise</p>
         </div>
@@ -470,13 +470,13 @@
     <section class="section section--alt" id="contact">
       <div class="container">
         <div class="section__head reveal">
-          <span class="section__index">06</span>
+          <span class="section__index scroll-rise">06</span>
           <h2 class="section__title" data-de="Kontakt" data-en="Contact">Kontakt</h2>
           <p class="section__sub" data-de="Schreiben Sie mir" data-en="Get in touch">Schreiben Sie mir</p>
         </div>
 
         <div class="contact">
-          <div class="contact__intro reveal">
+          <div class="contact__intro reveal reveal--left">
             <p class="contact__lead" data-de="Sie suchen einen Entwickler, der nicht nur umsetzt, sondern auch mitdenkt? Schreiben Sie mir. Ich antworte meistens innerhalb eines Tages."
                data-en="Looking for a developer who doesn't just build, but also thinks things through? Drop me a message. I usually reply within a day.">
               Sie suchen einen Entwickler, der nicht nur umsetzt, sondern auch mitdenkt? Schreiben Sie mir. Ich antworte meistens innerhalb eines Tages.
@@ -502,7 +502,7 @@
           </div>
 
           <!-- Web3Forms: replace the access_key value with your own key from https://web3forms.com -->
-          <form class="contact__form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <form class="contact__form reveal reveal--right" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
             <input type="hidden" name="subject" value="Neue Nachricht über das Portfolio" />
             <input type="hidden" name="from_name" value="turangoezel.is-a.dev" />
@@ -577,13 +577,6 @@
     <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 8.4 6.7 13.7a1 1 0 0 1-1.4-1.4l6-6a1 1 0 0 1 1.4 0l6 6a1 1 0 0 1-1.4 1.4L12 8.4Z"/></svg>
   </button>
 
-  <!-- Timeline variant switcher (temporary) -->
-  <div class="tl-switcher" id="tlSwitcher">
-    <span class="tl-switcher__label">Timeline</span>
-    <button class="tl-switcher__btn is-active" data-variant="tl-progress">A: Progress</button>
-    <button class="tl-switcher__btn" data-variant="tl-glow">B: Glow</button>
-  </div>
-
-  <script src="/js/main.js" defer></script>
+<script src="/js/main.js" defer></script>
 </body>
 </html>

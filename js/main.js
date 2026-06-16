@@ -125,7 +125,7 @@
   const grid = $('#projectGrid');
   if (grid) {
     grid.innerHTML = projects.map(p => `
-      <article class="project reveal">
+      <article class="project reveal reveal--rotate">
         <div class="project__top">
           <span class="project__badge" data-de="${p.badgeDe}" data-en="${p.badgeEn}">${p.badgeDe}</span>
           <span class="project__icon" aria-hidden="true">${p.icon}</span>
@@ -239,35 +239,48 @@
     statEls.forEach(el => statObs.observe(el));
   }
 
-  /* ---------- Section heading parallax-lite ---------- */
+  /* ---------- Scroll-driven effects ---------- */
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isMobile = window.innerWidth < 760;
   if (!prefersReducedMotion && !isMobile) {
     const heads = $$('.section__head');
-    function updateParallax() {
+    const hero = $('.hero');
+    const heroContent = $('.hero__content');
+    const heroPortrait = $('.hero__portrait');
+    const heroBlobs = $$('.hero__bg .blob');
+    const riseEls = $$('.scroll-rise');
+
+    function updateScrollEffects() {
       const vh = window.innerHeight;
+      const scrollY = window.scrollY;
+
+      if (hero && scrollY < vh * 1.5) {
+        const ratio = scrollY / vh;
+        if (heroPortrait) heroPortrait.style.transform = 'translateY(' + (ratio * -80) + 'px)';
+        if (heroContent) heroContent.style.transform = 'translateY(' + (ratio * -30) + 'px)';
+        hero.style.opacity = Math.max(0, 1 - ratio * 1.2);
+        heroBlobs.forEach((blob, i) => {
+          blob.style.setProperty('--hero-offset', (ratio * -(20 + i * 15)) + 'px');
+        });
+      }
+
       heads.forEach(h => {
         const rect = h.getBoundingClientRect();
         const center = rect.top + rect.height / 2;
         const offset = Math.max(-20, Math.min(20, (center - vh / 2) * 0.04));
         h.style.transform = 'translateY(' + offset + 'px)';
       });
+
+      riseEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const visibility = (vh - rect.top) / vh;
+        if (visibility < 0 || visibility > 1.5) return;
+        el.style.setProperty('--scroll-rise', (20 - visibility * 30) + 'px');
+      });
     }
-    window.addEventListener('scroll', updateParallax, { passive: true });
+    window.addEventListener('scroll', updateScrollEffects, { passive: true });
   }
 
-  /* ---------- Timeline variant switcher ---------- */
-  const cvEl = $('#cvTimeline');
-  const switcherBtns = $$('.tl-switcher__btn');
-  switcherBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (!cvEl) return;
-      switcherBtns.forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      cvEl.classList.remove('tl-progress', 'tl-glow');
-      cvEl.classList.add(btn.dataset.variant);
-    });
-  });
 
   /* ---------- Scrollspy ---------- */
   const sections = $$('main section[id]');
