@@ -193,15 +193,15 @@
 
             <div class="stats reveal">
               <div class="stat">
-                <strong class="stat__num">6+</strong>
+                <strong class="stat__num" data-count="6" data-suffix="+">6+</strong>
                 <span class="stat__label" data-de="Jahre in der Entwicklung" data-en="Years developing">Jahre in der Entwicklung</span>
               </div>
               <div class="stat">
-                <strong class="stat__num">4</strong>
+                <strong class="stat__num" data-count="4">4</strong>
                 <span class="stat__label" data-de="Länder im Software-Rollout" data-en="Countries in rollout">Länder im Software-Rollout</span>
               </div>
               <div class="stat">
-                <strong class="stat__num">3</strong>
+                <strong class="stat__num" data-count="3">3</strong>
                 <span class="stat__label" data-de="Sprachen fließend" data-en="Languages spoken">Sprachen fließend</span>
               </div>
             </div>
@@ -227,7 +227,7 @@
           <p class="section__sub" data-de="Beruflicher Werdegang & Ausbildung" data-en="Career & education">Beruflicher Werdegang & Ausbildung</p>
         </div>
 
-        <div class="cv">
+        <div class="cv tl-progress" id="cvTimeline">
           <h3 class="cv__heading reveal" data-de="Berufserfahrung" data-en="Experience">Berufserfahrung</h3>
           <ol class="timeline">
 
@@ -365,35 +365,35 @@
           <div class="skill-group reveal">
             <h3 class="skill-group__title" data-de="Programmiersprachen" data-en="Programming languages">Programmiersprachen</h3>
             <ul class="skill-chips">
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/java.svg" alt="" width="20" height="20" loading="lazy" /><span>Java</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/csharp.svg" alt="" width="20" height="20" loading="lazy" /><span>C#</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/python.svg" alt="" width="20" height="20" loading="lazy" /><span>Python</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/javascript.svg" alt="" width="20" height="20" loading="lazy" /><span>JavaScript</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/sql.svg" alt="" width="20" height="20" loading="lazy" /><span>SQL</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/php.svg" alt="" width="20" height="20" loading="lazy" /><span>PHP</span></li>
+              <li class="chip" data-level="80"><img class="chip__icon" src="/assets/img/icons/java.svg" alt="" width="20" height="20" loading="lazy" /><span>Java</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="85"><img class="chip__icon" src="/assets/img/icons/csharp.svg" alt="" width="20" height="20" loading="lazy" /><span>C#</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="70"><img class="chip__icon" src="/assets/img/icons/python.svg" alt="" width="20" height="20" loading="lazy" /><span>Python</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="90"><img class="chip__icon" src="/assets/img/icons/javascript.svg" alt="" width="20" height="20" loading="lazy" /><span>JavaScript</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="80"><img class="chip__icon" src="/assets/img/icons/sql.svg" alt="" width="20" height="20" loading="lazy" /><span>SQL</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="65"><img class="chip__icon" src="/assets/img/icons/php.svg" alt="" width="20" height="20" loading="lazy" /><span>PHP</span><span class="chip__bar" aria-hidden="true"></span></li>
             </ul>
           </div>
 
           <div class="skill-group reveal">
             <h3 class="skill-group__title" data-de="Frameworks & Web" data-en="Frameworks & web">Frameworks & Web</h3>
             <ul class="skill-chips">
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/react.svg" alt="" width="20" height="20" loading="lazy" /><span>React</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/dotnet.svg" alt="" width="20" height="20" loading="lazy" /><span>.NET</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/spring.svg" alt="" width="20" height="20" loading="lazy" /><span>Spring</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/html5.svg" alt="" width="20" height="20" loading="lazy" /><span>HTML / CSS</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/rest.svg" alt="" width="20" height="20" loading="lazy" /><span>REST APIs</span></li>
+              <li class="chip" data-level="85"><img class="chip__icon" src="/assets/img/icons/react.svg" alt="" width="20" height="20" loading="lazy" /><span>React</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="85"><img class="chip__icon" src="/assets/img/icons/dotnet.svg" alt="" width="20" height="20" loading="lazy" /><span>.NET</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="70"><img class="chip__icon" src="/assets/img/icons/spring.svg" alt="" width="20" height="20" loading="lazy" /><span>Spring</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="90"><img class="chip__icon" src="/assets/img/icons/html5.svg" alt="" width="20" height="20" loading="lazy" /><span>HTML / CSS</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="90"><img class="chip__icon" src="/assets/img/icons/rest.svg" alt="" width="20" height="20" loading="lazy" /><span>REST APIs</span><span class="chip__bar" aria-hidden="true"></span></li>
             </ul>
           </div>
 
           <div class="skill-group reveal">
             <h3 class="skill-group__title" data-de="Plattformen & Tools" data-en="Platforms & tools">Plattformen & Tools</h3>
             <ul class="skill-chips">
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/powerplatform.svg" alt="" width="20" height="20" loading="lazy" /><span>Power Platform</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/microsoft365.svg" alt="" width="20" height="20" loading="lazy" /><span>Microsoft 365</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/plentymarkets.svg" alt="" width="20" height="20" loading="lazy" /><span>Plentymarkets</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/ai.svg" alt="" width="20" height="20" loading="lazy" /><span data-de="LLM-/KI-Integration" data-en="LLM / AI integration">LLM-/KI-Integration</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/sap.svg" alt="" width="20" height="20" loading="lazy" /><span>SAP</span></li>
-              <li class="chip"><img class="chip__icon" src="/assets/img/icons/git.svg" alt="" width="20" height="20" loading="lazy" /><span>Git</span></li>
+              <li class="chip" data-level="80"><img class="chip__icon" src="/assets/img/icons/powerplatform.svg" alt="" width="20" height="20" loading="lazy" /><span>Power Platform</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="75"><img class="chip__icon" src="/assets/img/icons/microsoft365.svg" alt="" width="20" height="20" loading="lazy" /><span>Microsoft 365</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="80"><img class="chip__icon" src="/assets/img/icons/plentymarkets.svg" alt="" width="20" height="20" loading="lazy" /><span>Plentymarkets</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="70"><img class="chip__icon" src="/assets/img/icons/ai.svg" alt="" width="20" height="20" loading="lazy" /><span data-de="LLM-/KI-Integration" data-en="LLM / AI integration">LLM-/KI-Integration</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="60"><img class="chip__icon" src="/assets/img/icons/sap.svg" alt="" width="20" height="20" loading="lazy" /><span>SAP</span><span class="chip__bar" aria-hidden="true"></span></li>
+              <li class="chip" data-level="85"><img class="chip__icon" src="/assets/img/icons/git.svg" alt="" width="20" height="20" loading="lazy" /><span>Git</span><span class="chip__bar" aria-hidden="true"></span></li>
             </ul>
           </div>
         </div>
@@ -576,6 +576,13 @@
   <button class="to-top" id="toTop" type="button" data-de-aria="Nach oben" data-en-aria="Back to top" aria-label="Nach oben">
     <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 8.4 6.7 13.7a1 1 0 0 1-1.4-1.4l6-6a1 1 0 0 1 1.4 0l6 6a1 1 0 0 1-1.4 1.4L12 8.4Z"/></svg>
   </button>
+
+  <!-- Timeline variant switcher (temporary) -->
+  <div class="tl-switcher" id="tlSwitcher">
+    <span class="tl-switcher__label">Timeline</span>
+    <button class="tl-switcher__btn is-active" data-variant="tl-progress">A: Progress</button>
+    <button class="tl-switcher__btn" data-variant="tl-glow">B: Glow</button>
+  </div>
 
   <script src="/js/main.js" defer></script>
 </body>

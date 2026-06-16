@@ -145,6 +145,29 @@
   /* ---------- Apply saved language now that DOM (incl. projects) is built ---------- */
   applyLang(currentLang);
 
+  /* ---------- Project card stagger indices ---------- */
+  if (grid) {
+    grid.querySelectorAll('.project').forEach((p, i) => p.style.setProperty('--i', i));
+  }
+
+  /* ---------- Chip proficiency bars ---------- */
+  $$('.chip[data-level]').forEach(el => {
+    el.style.setProperty('--level', el.dataset.level + '%');
+  });
+
+  /* ---------- Stagger indices ---------- */
+  $$('.skill-chips').forEach(list => {
+    list.querySelectorAll('.chip').forEach((c, i) => {
+      c.classList.add('reveal');
+      c.style.setProperty('--i', i);
+    });
+  });
+  $$('.timeline').forEach(tl => {
+    tl.querySelectorAll('.timeline__item').forEach((item, i) => {
+      item.style.setProperty('--i', i);
+    });
+  });
+
   /* ---------- Reveal on scroll ---------- */
   const revealEls = $$('.reveal');
   if ('IntersectionObserver' in window) {
@@ -160,6 +183,85 @@
   } else {
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
+
+  /* ---------- Timeline scroll-progress ---------- */
+  function updateTimelineProgress() {
+    $$('.timeline').forEach(tl => {
+      const rect = tl.getBoundingClientRect();
+      const viewH = window.innerHeight;
+      const progress = Math.min(1, Math.max(0, (viewH - rect.top) / (rect.height + viewH * 0.3)));
+      tl.style.setProperty('--tl-progress', progress);
+    });
+  }
+  window.addEventListener('scroll', updateTimelineProgress, { passive: true });
+  updateTimelineProgress();
+
+  /* ---------- Timeline dot activation ---------- */
+  if ('IntersectionObserver' in window) {
+    const dotObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-active');
+        }
+      });
+    }, { threshold: 0.3 });
+    $$('.timeline__item').forEach(item => dotObs.observe(item));
+  }
+
+  /* ---------- Stat counter animation ---------- */
+  const statEls = $$('.stat__num[data-count]');
+  statEls.forEach(el => { el.textContent = '0' + (el.dataset.suffix || ''); });
+  if ('IntersectionObserver' in window) {
+    const statObs = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        obs.unobserve(e.target);
+        const el = e.target;
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1200;
+        const start = performance.now();
+        function tick(now) {
+          const t = Math.min(1, (now - start) / duration);
+          const ease = 1 - Math.pow(1 - t, 3);
+          el.textContent = Math.round(target * ease) + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    statEls.forEach(el => statObs.observe(el));
+  }
+
+  /* ---------- Section heading parallax-lite ---------- */
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.innerWidth < 760;
+  if (!prefersReducedMotion && !isMobile) {
+    const heads = $$('.section__head');
+    function updateParallax() {
+      const vh = window.innerHeight;
+      heads.forEach(h => {
+        const rect = h.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const offset = Math.max(-20, Math.min(20, (center - vh / 2) * 0.04));
+        h.style.transform = 'translateY(' + offset + 'px)';
+      });
+    }
+    window.addEventListener('scroll', updateParallax, { passive: true });
+  }
+
+  /* ---------- Timeline variant switcher ---------- */
+  const cvEl = $('#cvTimeline');
+  const switcherBtns = $$('.tl-switcher__btn');
+  switcherBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!cvEl) return;
+      switcherBtns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      cvEl.classList.remove('tl-progress', 'tl-glow');
+      cvEl.classList.add(btn.dataset.variant);
+    });
+  });
 
   /* ---------- Scrollspy ---------- */
   const sections = $$('main section[id]');
