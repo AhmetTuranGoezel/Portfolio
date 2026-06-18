@@ -243,24 +243,19 @@
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isMobile = window.innerWidth < 760;
   if (!prefersReducedMotion && !isMobile) {
-    const hero = $('.hero');
-    const heroBlobs = $$('.hero__bg .blob');
-    const blobLag = [0.16, 0.26, 0.10]; // far blobs lag more
+    const scene = $('.hero-scene');
     const parallaxEls = $$('[data-parallax]');
 
     function updateScrollEffects() {
       const vh = window.innerHeight;
-      const scrollY = window.scrollY;
 
-      // Hero background: blobs lag behind scroll (depth), hero fades out gently
-      if (hero && scrollY < vh * 1.5) {
-        heroBlobs.forEach((blob, i) => {
-          blob.style.setProperty('--py', (scrollY * (blobLag[i] || 0.1)).toFixed(1) + 'px');
-        });
-        hero.style.opacity = Math.max(0, 1 - (scrollY / vh) * 0.8);
+      if (scene) {
+        const rect = scene.getBoundingClientRect();
+        const scrollable = scene.offsetHeight - vh;
+        const hp = scrollable > 0 ? Math.min(1, Math.max(0, -rect.top / scrollable)) : 0;
+        scene.style.setProperty('--hp', hp.toFixed(3));
       }
 
-      // Generic layers: deeper (higher factor) drift slower → sense of distance
       parallaxEls.forEach(el => {
         const speed = parseFloat(el.dataset.parallax);
         const rect = el.getBoundingClientRect();
