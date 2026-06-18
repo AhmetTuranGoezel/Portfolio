@@ -125,7 +125,7 @@
   const grid = $('#projectGrid');
   if (grid) {
     grid.innerHTML = projects.map(p => `
-      <article class="project reveal reveal--rotate">
+      <article class="project reveal">
         <div class="project__top">
           <span class="project__badge" data-de="${p.badgeDe}" data-en="${p.badgeEn}">${p.badgeDe}</span>
           <span class="project__icon" aria-hidden="true">${p.icon}</span>
@@ -239,46 +239,37 @@
     statEls.forEach(el => statObs.observe(el));
   }
 
-  /* ---------- Scroll-driven effects ---------- */
+  /* ---------- Layered depth parallax ---------- */
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isMobile = window.innerWidth < 760;
   if (!prefersReducedMotion && !isMobile) {
-    const heads = $$('.section__head');
     const hero = $('.hero');
-    const heroContent = $('.hero__content');
-    const heroPortrait = $('.hero__portrait');
     const heroBlobs = $$('.hero__bg .blob');
-    const riseEls = $$('.scroll-rise');
+    const blobLag = [0.16, 0.26, 0.10]; // far blobs lag more
+    const parallaxEls = $$('[data-parallax]');
 
     function updateScrollEffects() {
       const vh = window.innerHeight;
       const scrollY = window.scrollY;
 
+      // Hero background: blobs lag behind scroll (depth), hero fades out gently
       if (hero && scrollY < vh * 1.5) {
-        const ratio = scrollY / vh;
-        if (heroPortrait) heroPortrait.style.transform = 'translateY(' + (ratio * -80) + 'px)';
-        if (heroContent) heroContent.style.transform = 'translateY(' + (ratio * -30) + 'px)';
-        hero.style.opacity = Math.max(0, 1 - ratio * 1.2);
         heroBlobs.forEach((blob, i) => {
-          blob.style.setProperty('--hero-offset', (ratio * -(20 + i * 15)) + 'px');
+          blob.style.setProperty('--py', (scrollY * (blobLag[i] || 0.1)).toFixed(1) + 'px');
         });
+        hero.style.opacity = Math.max(0, 1 - (scrollY / vh) * 0.8);
       }
 
-      heads.forEach(h => {
-        const rect = h.getBoundingClientRect();
-        const center = rect.top + rect.height / 2;
-        const offset = Math.max(-20, Math.min(20, (center - vh / 2) * 0.04));
-        h.style.transform = 'translateY(' + offset + 'px)';
-      });
-
-      riseEls.forEach(el => {
+      // Generic layers: deeper (higher factor) drift slower → sense of distance
+      parallaxEls.forEach(el => {
+        const speed = parseFloat(el.dataset.parallax);
         const rect = el.getBoundingClientRect();
-        const visibility = (vh - rect.top) / vh;
-        if (visibility < 0 || visibility > 1.5) return;
-        el.style.setProperty('--scroll-rise', (20 - visibility * 30) + 'px');
+        const fromCenter = (rect.top + rect.height / 2) - vh / 2;
+        el.style.setProperty('--py', (-fromCenter * speed).toFixed(1) + 'px');
       });
     }
     window.addEventListener('scroll', updateScrollEffects, { passive: true });
+    updateScrollEffects();
   }
 
 
