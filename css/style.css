@@ -220,7 +220,18 @@ ul,ol{list-style:none}
 
 /* ---------- Timeline animations ---------- */
 .timeline::after{content:"";position:absolute;left:7px;top:6px;width:2px;height:0;
-  background:var(--primary);transition:height .1s linear;z-index:1}
+  background:linear-gradient(var(--accent),var(--primary));
+  box-shadow:0 0 12px 1px color-mix(in srgb,var(--primary) 55%,transparent),0 0 4px var(--primary);
+  transition:height .1s linear;z-index:1}
+
+/* Comet head */
+.timeline__comet{position:absolute;left:8px;width:14px;height:14px;border-radius:50%;
+  top:calc(6px + var(--tl-progress,0) * (100% - 12px));transform:translate(-50%,-50%);z-index:2;
+  background:radial-gradient(circle,#fff,var(--primary) 60%,transparent 72%);
+  box-shadow:0 0 16px 4px color-mix(in srgb,var(--primary) 70%,transparent);
+  opacity:calc(var(--tl-progress,0) * (1 - var(--tl-progress,0)) * 4);
+  animation:cometPulse 1.6s ease-in-out infinite;pointer-events:none}
+@keyframes cometPulse{50%{box-shadow:0 0 22px 7px color-mix(in srgb,var(--primary) 80%,transparent)}}
 
 /* Scroll-Progress */
 .tl-progress .timeline::after{height:calc(var(--tl-progress,0) * (100% - 12px))}
@@ -286,6 +297,17 @@ ul,ol{list-style:none}
 .tag{font-family:'JetBrains Mono',monospace;font-size:.74rem;padding:5px 10px;border-radius:8px;
   background:var(--surface-2);border:1px solid var(--border);color:var(--text-dim)}
 .projects__note{text-align:center;color:var(--text-mute);font-size:.9rem;margin-top:34px;max-width:640px;margin-inline:auto}
+
+/* ---------- Video scene (scale-expand) ---------- */
+.video-scene{position:relative;height:200vh}
+.video-band{position:relative}
+.video-stage{position:sticky;top:0;min-height:100vh;display:grid;place-items:center;overflow:hidden;gap:18px;padding:20px}
+.video-stage::before{content:"";position:absolute;inset:0;background:#05060a;
+  opacity:calc(var(--vp,0)*.5);z-index:0;pointer-events:none}
+[data-theme="light"] .video-stage::before{background:#0f172a}
+.video-band__eyebrow{position:relative;z-index:1;font-family:'JetBrains Mono',monospace;font-size:.85rem;
+  color:var(--primary-2);letter-spacing:.1em;font-weight:500;
+  opacity:calc(1 - var(--vp,0)*2.5);transition:none}
 
 /* ---------- Video ---------- */
 .video{position:relative;max-width:900px;margin-inline:auto;aspect-ratio:16/9;border-radius:var(--radius);
@@ -355,6 +377,10 @@ ul,ol{list-style:none}
 .hero-scene .hero__content{transform:scale(calc(1 + var(--hp,0)*.55)) translateY(calc(var(--hp,0)*-28px));opacity:calc(1 - var(--hp,0)*1.25);filter:blur(calc(var(--hp,0)*3px));will-change:transform,opacity,filter;transition:none}
 .hero-scene .hero__portrait{transform:scale(calc(1 + var(--hp,0)*.32));opacity:calc(1 - var(--hp,0));will-change:transform,opacity;transition:none}
 .hero-scene .scroll-cue{opacity:calc(1 - var(--hp,0)*3)}
+.video-scene .video{width:min(760px,90vw);max-width:none;margin:0;
+  transform:scale(calc(1 + var(--vp,0)*.58));
+  border-radius:calc(20px - var(--vp,0)*12px);
+  transform-origin:center center;will-change:transform;transition:none}
 
 /* ---------- CV layout (sticky aside + depth) ---------- */
 .cv-layout{display:grid;grid-template-columns:minmax(210px,290px) 1fr;gap:clamp(28px,5vw,60px);align-items:start}
@@ -397,6 +423,11 @@ ul,ol{list-style:none}
   .hero__content{transform:none;opacity:1;filter:none}
   .hero__portrait{transform:none;opacity:1}
   .scroll-cue{opacity:1}
+  .video-scene{height:auto}
+  .video-stage{position:static;min-height:0;overflow:visible;padding:clamp(70px,10vw,120px) clamp(20px,4vw,40px)}
+  .video-scene .video{transform:none;width:min(900px,100%);border-radius:var(--radius)}
+  .video-stage::before{opacity:0}
+  .video-band__eyebrow{opacity:1}
 }
 @media (max-width:420px){
   .projects{grid-template-columns:1fr}
@@ -421,4 +452,10 @@ ul,ol{list-style:none}
   .hero__portrait{transform:none !important;opacity:1 !important}
   .scroll-cue{opacity:1 !important}
   .cv-aside{transform:none !important;opacity:1 !important;filter:none !important;position:static !important}
+  .video-scene{height:auto !important}
+  .video-stage{position:static !important;min-height:0 !important;overflow:visible !important}
+  .video-scene .video{transform:none !important;border-radius:var(--radius) !important}
+  .video-stage::before{opacity:0 !important}
+  .video-band__eyebrow{opacity:1 !important}
+  .timeline__comet{animation:none}
 }

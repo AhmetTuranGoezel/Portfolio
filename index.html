@@ -77,10 +77,10 @@
 
       <nav class="nav" id="nav" aria-label="Hauptnavigation">
         <a href="#about"    class="nav__link" data-de="Über mich"   data-en="About">Über mich</a>
+        <a href="#video"    class="nav__link" data-de="Video"       data-en="Video">Video</a>
         <a href="#cv"       class="nav__link" data-de="Lebenslauf"  data-en="Resume">Lebenslauf</a>
         <a href="#skills"   class="nav__link" data-de="Skills"      data-en="Skills">Skills</a>
         <a href="#projects" class="nav__link" data-de="Projekte"    data-en="Projects">Projekte</a>
-        <a href="#video"    class="nav__link" data-de="Video"       data-en="Video">Video</a>
         <a href="#contact"  class="nav__link" data-de="Kontakt"     data-en="Contact">Kontakt</a>
       </nav>
 
@@ -220,6 +220,29 @@
       </div>
     </section>
 
+    <!-- ============ VIDEO ============ -->
+    <div class="video-scene" data-scene="--vp">
+      <section class="video-band" id="video">
+        <div class="video-stage">
+          <p class="video-band__eyebrow" data-de="Video-Vorstellung" data-en="Video intro">Video-Vorstellung</p>
+          <div class="video reveal" id="videoFacade" data-video-id="">
+            <div class="video__inner">
+              <button class="video__play" type="button" data-de-aria="Video abspielen" data-en-aria="Play video" aria-label="Video abspielen">
+                <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7L8 5Z"/></svg>
+              </button>
+              <div class="video__placeholder">
+                <p class="video__soon" data-de="Video folgt in Kürze" data-en="Video coming soon">Video folgt in Kürze</p>
+                <p class="video__hint" data-de="Hier stelle ich mich, meine Sprachen und meine Skills in einem kurzen Clip vor."
+                   data-en="Here I'll introduce myself, my languages and my skills in a short clip.">
+                  Hier stelle ich mich, meine Sprachen und meine Skills in einem kurzen Clip vor.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <!-- ============ LEBENSLAUF ============ -->
     <section class="section section--alt" id="cv">
       <div class="container cv-layout" data-scene="--cp">
@@ -234,6 +257,7 @@
         <div class="cv tl-progress" id="cvTimeline">
           <h3 class="cv__heading reveal" data-de="Bildungsweg" data-en="Education">Bildungsweg</h3>
           <ol class="timeline">
+            <span class="timeline__comet" aria-hidden="true"></span>
             <li class="timeline__item reveal">
               <span class="timeline__dot"></span>
               <span class="timeline__date">2017</span>
@@ -262,6 +286,7 @@
 
           <h3 class="cv__heading reveal" data-de="Berufserfahrung" data-en="Experience">Berufserfahrung</h3>
           <ol class="timeline">
+            <span class="timeline__comet" aria-hidden="true"></span>
 
             <li class="timeline__item reveal">
               <span class="timeline__dot"></span>
@@ -443,38 +468,11 @@
       </div>
     </section>
 
-    <!-- ============ VIDEO ============ -->
-    <section class="section" id="video">
-      <div class="container">
-        <div class="section__head reveal">
-          <span class="section__index" data-parallax="0.16">05</span>
-          <h2 class="section__title" data-de="Video-Vorstellung" data-en="Video intro">Video-Vorstellung</h2>
-          <p class="section__sub" data-de="Ein kurzer Einblick in meine Arbeitsweise" data-en="A short look at how I work">Ein kurzer Einblick in meine Arbeitsweise</p>
-        </div>
-
-        <!-- To enable: set data-video-id to your YouTube video ID (e.g. data-video-id="dQw4w9WgXcQ") -->
-        <div class="video reveal" id="videoFacade" data-video-id="">
-          <div class="video__inner">
-            <button class="video__play" type="button" data-de-aria="Video abspielen" data-en-aria="Play video" aria-label="Video abspielen">
-              <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7L8 5Z"/></svg>
-            </button>
-            <div class="video__placeholder">
-              <p class="video__soon" data-de="Video folgt in Kürze" data-en="Video coming soon">Video folgt in Kürze</p>
-              <p class="video__hint" data-de="Hier stelle ich mich, meine Sprachen und meine Skills in einem kurzen Clip vor."
-                 data-en="Here I'll introduce myself, my languages and my skills in a short clip.">
-                Hier stelle ich mich, meine Sprachen und meine Skills in einem kurzen Clip vor.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ CONTACT ============ -->
     <section class="section section--alt" id="contact">
       <div class="container">
         <div class="section__head reveal">
-          <span class="section__index" data-parallax="0.16">06</span>
+          <span class="section__index" data-parallax="0.16">05</span>
           <h2 class="section__title" data-de="Kontakt" data-en="Contact">Kontakt</h2>
           <p class="section__sub" data-de="Schreiben Sie mir" data-en="Get in touch">Schreiben Sie mir</p>
         </div>
