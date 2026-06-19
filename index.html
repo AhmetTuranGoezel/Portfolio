@@ -110,7 +110,7 @@
 
   <main id="main">
     <!-- ============ HERO ============ -->
-    <div class="hero-scene">
+    <div class="hero-scene" data-scene="--hp">
     <section class="hero" id="home">
       <div class="hero__bg" aria-hidden="true">
         <span class="blob blob--1"></span>
@@ -222,12 +222,14 @@
 
     <!-- ============ LEBENSLAUF ============ -->
     <section class="section section--alt" id="cv">
-      <div class="container">
-        <div class="section__head reveal">
-          <span class="section__index" data-parallax="0.16">02</span>
-          <h2 class="section__title" data-de="Lebenslauf" data-en="Resume">Lebenslauf</h2>
-          <p class="section__sub" data-de="Beruflicher Werdegang & Ausbildung" data-en="Career & education">Beruflicher Werdegang & Ausbildung</p>
-        </div>
+      <div class="container cv-layout" data-scene="--cp">
+        <aside class="cv-aside">
+          <div class="section__head">
+            <span class="section__index">02</span>
+            <h2 class="section__title" data-de="Lebenslauf" data-en="Resume">Lebenslauf</h2>
+            <p class="section__sub" data-de="Beruflicher Werdegang & Ausbildung" data-en="Career & education">Beruflicher Werdegang & Ausbildung</p>
+          </div>
+        </aside>
 
         <div class="cv tl-progress" id="cvTimeline">
           <h3 class="cv__heading reveal" data-de="Bildungsweg" data-en="Education">Bildungsweg</h3>
@@ -351,7 +353,7 @@
             </a>
           </div>
         </div>
-      </div>
+      </div><!-- .cv-layout -->
     </section>
 
     <!-- ============ SKILLS ============ -->

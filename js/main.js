@@ -243,18 +243,19 @@
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isMobile = window.innerWidth < 760;
   if (!prefersReducedMotion && !isMobile) {
-    const scene = $('.hero-scene');
+    const scenes = $$('[data-scene]');
     const parallaxEls = $$('[data-parallax]');
+    const smooth = t => t * t * (3 - 2 * t);
 
     function updateScrollEffects() {
       const vh = window.innerHeight;
 
-      if (scene) {
-        const rect = scene.getBoundingClientRect();
-        const scrollable = scene.offsetHeight - vh;
-        const hp = scrollable > 0 ? Math.min(1, Math.max(0, -rect.top / scrollable)) : 0;
-        scene.style.setProperty('--hp', hp.toFixed(3));
-      }
+      scenes.forEach(s => {
+        const rect = s.getBoundingClientRect();
+        const scrollable = s.offsetHeight - vh;
+        let p = scrollable > 0 ? Math.min(1, Math.max(0, -rect.top / scrollable)) : 0;
+        s.style.setProperty(s.dataset.scene, smooth(p).toFixed(3));
+      });
 
       parallaxEls.forEach(el => {
         const speed = parseFloat(el.dataset.parallax);
